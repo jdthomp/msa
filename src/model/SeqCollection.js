@@ -111,8 +111,10 @@ const SeqCollection = Collection.extend({
     if (features) {
       // do silently to avoid triggering to many events
       seq.attributes.features = new FeatureCol(features);
+/* julie      : do not insert new rows for features
       seq.attributes.features.assignRows();
       seq.attributes.height = seq.attributes.features.getCurrentHeight() + 1;
+*/
     }
   },
 
