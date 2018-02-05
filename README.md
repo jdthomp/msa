@@ -29,6 +29,8 @@ Multiple Sequence Alignment Viewer - the MSAViewer - a BioJS component.
 <script src=//cdn.bio.sh/msa/1.0/msa.min.gz.js></script>
 ```
 
+This fork contains a modification to display sequence features as transparent blocks on top of residues, instead of inserting them on a new line underneath 
+
 Yes you can either link to the minified, gzipped CDN version or download the dev version from S3 .
 
 [![Min version](http://img.shields.io/badge/prod-35kB-blue.svg)](https://cdn.bio.sh/msa/latest/msa.min.gz.js)
@@ -419,7 +421,7 @@ zoomer: {
     alignmentHeight: 225,
     columnWidth: 15,
     rowHeight: 15,
-    autoResize: true, // only for the width
+    autoResize: true // only for the width
 
     // labels
     textVisible: true,
