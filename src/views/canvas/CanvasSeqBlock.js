@@ -137,28 +137,34 @@ const View = boneView.extend({
   drawFeatures: function(data) {
     const rectWidth = this.g.zoomer.get("columnWidth");
     const rectHeight = this.g.zoomer.get("rowHeight");
-    if (data.model.attributes.height > 1) {
+// julie    if (data.model.attributes.height > 1) {
+    if (data.model.attributes.height > 0) {
       const ctx = this.ctx;
       data.model.attributes.features.each(function(feature) {
+// julie : set transparency
+        ctx.globalAlpha = 0.8;
         ctx.fillStyle = feature.attributes.fillColor || "red";
         const len = feature.attributes.xEnd - feature.attributes.xStart + 1;
-        const y = (feature.attributes.row + 1) * rectHeight;
+// julie        const y = (feature.attributes.row + 1) * rectHeight;
+        const y = (feature.attributes.row) * rectHeight;
         return ctx.fillRect(feature.attributes.xStart * rectWidth + data.xZero,y + data.yZero,rectWidth * len,rectHeight);
       });
 
       // draw text
+/*
       ctx.fillStyle = "black";
       ctx.font = this.g.zoomer.get("residueFont") + "px mono";
       ctx.textBaseline = 'middle';
       ctx.textAlign = "center";
-
       return data.model.attributes.features.each(function(feature) {
         const len = feature.attributes.xEnd - feature.attributes.xStart + 1;
-        const y = (feature.attributes.row + 1) * rectHeight;
+// julie        const y = (feature.attributes.row + 1) * rectHeight;
+        const y = (feature.attributes.row) * rectHeight;
         return ctx.fillText( feature.attributes.text, data.xZero + feature.attributes.xStart *
         rectWidth + (len / 2) * rectWidth, data.yZero + rectHeight * 0.5 + y
         );
       });
+*/
     }
   },
 
